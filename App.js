@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image,Pressable} from 'react-native';
 import  * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
-import { icon } from 'react-icons';
+//  import { icon } from 'react-icons';
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-
+import { FontAwesome } from '@expo/vector-icons';
 
 
 export default function App() {
@@ -36,25 +36,33 @@ const [status, requestPermission] = ImagePicker.useCameraPermissions();
   }
 
   return (
+
     <View style={styles.container}>
+   
       <Text> </Text>
-
-
-      <Button title='Camera' FontAwesome5 name="camera-retro" size={50} color="black" onPress={openCamera}/>
-
-      <Button title='Upload Picture' MaterialCommunityIcons name="folder-upload-outline" size={24} color="black"  onPress={openLibrary} />
+     
+      <Image source={image?image: FontAwesome5  } style={{height: 300, width: 300}} />
       
-      <Image source={image?image:icon} style={{height: 100, width: 100}} />
+      <MaterialCommunityIcons name="folder-upload-outline" size={50} color="white" onPress={openLibrary} />
+
+      <FontAwesome name="camera-retro" size={50} color="white" onPress={openCamera}/>
+
       <StatusBar style="auto" />
+
+
     </View>
+
+
+
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    const styles = StyleSheet.create({
+         container: {
+            flex: 1,
+            backgroundColor: 'gray',
+            alignItems: 'center',
+            justifyContent: 'center',
   },
 });
